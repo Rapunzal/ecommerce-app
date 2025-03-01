@@ -33,4 +33,9 @@ export const CartProvider = ({ children }) => {
   };
 
   //clear cart
+  const resetCart = () => {
+    setCartItems([]);
+  };
+//
+
 };
