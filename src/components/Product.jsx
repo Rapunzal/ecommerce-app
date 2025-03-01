@@ -1,7 +1,10 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../context/CartContext";
 
 export const Product = ({ product }) => {
+  const { cartItems, addToCart } = useContext(CartContext);
   return (
     <div
       key={product.id}
@@ -34,7 +37,10 @@ export const Product = ({ product }) => {
           <button className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 ">
             Wishlist
           </button>
-          <button className="ml-6 rounded-full px-4 bg-orange-400  text-gray-800">
+          <button
+            className="ml-6 rounded-full px-4 bg-orange-400  text-gray-800"
+            onClick={() => addToCart(product)}
+          >
             Add Cart
           </button>
         </div>
