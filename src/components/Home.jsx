@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ProductListPage } from "./ProductListPage.jsx";
-import { ProductContext } from "../ProductContext.js";
+import { ProductContext } from "../context/ProductContext.js";
 
 export const Home = () => {
   const [productList, setProductList] = useState([]);
@@ -17,7 +17,7 @@ export const Home = () => {
     getAllProductData();
   }, []);
   return (
-    <div className="py-40">
+    <div className="py-20">
       <ProductContext.Provider value={{ productList, setProductList }}>
         <ProductListPage />
       </ProductContext.Provider>

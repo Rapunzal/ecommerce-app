@@ -1,23 +1,42 @@
 import React from "react";
+import { AiFillStar } from "react-icons/ai";
 
 export const Product = ({ product }) => {
   return (
     <div
       key={product.id}
-      className="w-80 h-96  border border-gray-300 rounded-md"
+      className="w-80 h-86  border border-gray-300 rounded-md"
     >
       <div className="flex justify-center">
-        <img src={product.images[0]} className="h-60 w-64 " />
+        <img src={product.images[0]} className="h-60 w-80 bg-gray-100" />
       </div>
-      <div className="mx-5">
-        <h3 className="text-2xl font-bold text-gray-500">{product.title}</h3>
+      <div className="mx-5 relative h-44">
+        <p className="text-xl  text-gray-500">{product.title}</p>
         {/* <p>{product.description}</p> */}
-        <div className="flex justify-between">
-          <div>
-            <p>Ratings: {product.rating}</p>
+        <div className="flex justify-between absolute bottom-14">
+          <div className="text-sm m-2">
+            <div className="flex">
+              Rating:
+              {/* <p>Ratings: {product.rating}</p> */}
+              {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <AiFillStar
+                    color={ratingValue > product.rating ? "grey" : "orange"}
+                  />
+                );
+              })}{" "}
+            </div>
             <p>Price: ${product.price}</p>
           </div>
-          <button className="rounded-full px-4 bg-gray-400">Add to cart</button>
+        </div>
+        <div className="flex justify-between mt-4 absolute bottom-4 w-full">
+          <button className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 ">
+            Wishlist
+          </button>
+          <button className="ml-6 rounded-full px-4 bg-orange-400  text-gray-800">
+            Add Cart
+          </button>
         </div>
       </div>
     </div>

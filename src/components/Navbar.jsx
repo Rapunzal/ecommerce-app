@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { FaShoppingCart } from "react-icons/fa";
 import { NavLink, Link, useSubmit } from "react-router-dom";
 
 export const Navbar = () => {
@@ -28,27 +28,23 @@ export const Navbar = () => {
           placeholder="Search Products"
           className="h-8 w-96 mt-2 rounded-full  p-2"
         />
-        <button className="bg-gray-400 h-8 w-20 rounded-full ml-4 mt-2">
+        <button className="bg-orange-400 h-8 w-20 rounded-full ml-4 mt-2 text-gray-800">
           Search
         </button>
       </div>
-      <div className="py-4 w-120  text-xl text-white ">
-        <nav>
-          <Link to={"/"} className="px-4">
+      <div className="py-4 w-96  text-xl text-white ">
+        <nav className="flex justify-evenly mr-11">
+          <Link to={"/"} className="px-6">
             Deals
           </Link>
-          <Link to={"/about"} className="px-4">
+          <Link to={"/about"} className="px-6">
             Orders
           </Link>
-          <Link to={"/contact"} className="px-4">
+          <Link to={"/contact"} className="px-6">
             Wishlist
           </Link>
-          <Link to="/cart" className="px-2">
-            <img
-              className="h-8"
-              src="https://t4.ftcdn.net/jpg/01/86/94/37/360_F_186943704_QJkLZaGKmymZuZLPLJrHDMUNpAwuHPjY.jpg"
-            />
-            Cart
+          <Link to={"/cart"} className="px-2 w-8 mr-4">
+            <FaShoppingCart className="h-6 w-8" />
           </Link>
         </nav>
       </div>
