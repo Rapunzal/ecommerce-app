@@ -34,11 +34,11 @@ export const Product = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-between mt-4 absolute bottom-4 w-full">
-          <button className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 ">
+          <button className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 hover:bg-orange-600 hover:text-white">
             Wishlist
           </button>
           <button
-            className="ml-6 rounded-full px-4 bg-orange-400  text-gray-800"
+            className="ml-6 rounded-full px-4 bg-orange-400  text-gray-800 hover:bg-orange-600 hover:text-white"
             onClick={() => addToCart(product)}
           >
             Add Cart

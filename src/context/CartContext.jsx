@@ -43,11 +43,16 @@ export const CartProvider = ({ children }) => {
   //Cart total functionality
 
   const cartTotal = () => {
+    console.log("cart total");
     return cartItems.reduce(
       (total, item) => total + item.quantity * item.price,
       0
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   useEffect(() => {
     const cartItems = localStorage.getItem("cartItems");

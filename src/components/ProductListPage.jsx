@@ -9,7 +9,7 @@ export const ProductListPage = () => {
   return (
     <div className="flex justify-center flex-wrap gap-12 m-16">
       {productList.map((product) => (
-        <Product product={product} />
+        <Product product={product} key={product.id} />
       ))}
     </div>
   );
