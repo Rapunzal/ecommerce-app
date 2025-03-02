@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { NavLink, Link, useSubmit } from "react-router-dom";
+import { NavLink, Link, useSubmit, useNavigate } from "react-router-dom";
 import { Input } from "./Input";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const redirectToHome = () => {
+    navigate("/");
+  };
   // const [sticky, setSticky] = useState(false);
 
   // function setStick() {
@@ -21,6 +25,7 @@ export const Navbar = () => {
         <img
           className="h-14"
           src="https://preview.redd.it/86rlwmn6scs81.png?width=640&crop=smart&auto=webp&s=9bce044c2cbad65c62319933e5ff3be543fb5281"
+          onClick={redirectToHome}
         />
       </div>
       <div className="flex justify-center align-middle ml-4 mt-2 ">
