@@ -3,12 +3,15 @@ import { Product } from "./Product";
 import { ProductContext } from "../context/ProductContext";
 import App from "../App";
 
-export const ProductListPage = () => {
-  const { productList, setProductList } = useContext(ProductContext);
-  console.log(productList, " list of product");
+export const ProductListPage = ({ loading }) => {
+  const { currentProduct, setProductList } = useContext(ProductContext);
+  console.log(currentProduct, " list of product");
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <div className="flex justify-center flex-wrap gap-12 m-16">
-      {productList.map((product) => (
+      {currentProduct.map((product) => (
         <Product product={product} key={product.id} />
       ))}
     </div>
