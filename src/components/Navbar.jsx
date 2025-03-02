@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink, Link, useSubmit } from "react-router-dom";
+import { Input } from "./Input";
 
 export const Navbar = () => {
   // const [sticky, setSticky] = useState(false);
@@ -23,14 +24,7 @@ export const Navbar = () => {
         />
       </div>
       <div className="flex justify-center align-middle ml-4 mt-2 ">
-        <input
-          type="text"
-          placeholder="Search Products"
-          className="h-8 w-96 mt-2 rounded-full  p-2"
-        />
-        <button className="bg-orange-400 h-8 w-20 rounded-full ml-4 mt-2 text-gray-800">
-          Search
-        </button>
+        <Input />
       </div>
       <div className="py-4 w-96  text-xl text-white ">
         <nav className="flex justify-evenly mr-11">

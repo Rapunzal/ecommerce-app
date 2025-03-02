@@ -6,6 +6,7 @@ import { Contact } from "./components/Contact.jsx";
 import { About } from "./components/About.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Cart } from "./components/Cart.jsx";
+import { Search } from "./components/Search.jsx";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/search/:input" element={<Search />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

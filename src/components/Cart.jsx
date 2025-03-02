@@ -1,53 +1,64 @@
-import { useContext, useState } from "react";
+import React from "react";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 export const Cart = () => {
   const { cartItems, addToCart, removeItem, resetCart, cartTotal } =
     useContext(CartContext);
-  const [total, setTotal] = useState(0);
-  console.log(cartItems);
-
-  const calculateTotal = () => {
-    setTotal(cartTotal);
-  };
-
-  const handleReset = () => {
-    resetCart();
-    setTotal(0);
-  };
-
   return (
-    <div className="py-36 flex justify-center">
-      <div className="flex justify-center align-middle flex-wrap w-96 ">
+    <div className="flex-col flex items-center gap-8 px-10 text-black text-sm h-full py-40">
+      <h1 className="text-2xl font-bold">Cart</h1>
+      <div className="flex flex-col gap-4">
         {cartItems.map((item) => (
-          <div className="h-36 w-96 " key={item.id}>
-            <p>{item.id}</p>
-            <p>{item.title}</p>
-            <div className="flex">
+          <div className="flex justify-between items-center" key={item.id}>
+            <div className="flex gap-4">
+              <img
+                src={item.thumbnail}
+                alt={item.title}
+                className="rounded-md h-24"
+              />
+              <div className="flex flex-col">
+                <h1 className="text-lg font-bold">{item.title}</h1>
+                <p className="text-gray-600">{item.price}</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
               <button
-                className="bg-orange-400 px-2"
-                onClick={() => addToCart(item)}
+                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                onClick={() => {
+                  addToCart(item);
+                }}
               >
                 +
               </button>
-              <p>{Number(item.quantity)}</p>
+              <p>{item.quantity}</p>
               <button
-                className="bg-orange-400 px-2"
-                onClick={() => removeItem(item)}
+                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                onClick={() => {
+                  removeItem(item);
+                }}
               >
                 -
               </button>
             </div>
           </div>
         ))}
-        <p>Cart Total : {total}</p>
-        <button className="bg-orange-400 p-4" onClick={calculateTotal}>
-          Total
-        </button>
-        <button className="bg-orange-400 p-4" onClick={handleReset}>
-          Reset
-        </button>
       </div>
+      {cartItems.length > 0 ? (
+        <div className="flex flex-col justify-between items-center">
+          <h1 className="text-lg font-bold">Total: ${cartTotal().toFixed(2)}</h1>
+          <button
+            className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+            onClick={() => {
+              resetCart();
+            }}
+          >
+            Clear cart
+          </button>
+        </div>
+      ) : (
+        <h1 className="text-lg font-bold">Your cart is empty</h1>
+      )}
     </div>
   );
 };
