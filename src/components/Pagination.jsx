@@ -6,7 +6,10 @@ export const Pagination = ({ productPerPage, totalProducts, paginate }) => {
   }
   return (
     <div className="flex justify-center">
-      <nav class="flex items-center gap-x-1" aria-label="Pagination">
+      <nav
+        class="flex items-center gap-x-1  border border-gray-100"
+        aria-label="Pagination"
+      >
         <ul className="flex items-center gap-x-1">
           {pageNumbers.map((num) => (
             <li key={num}>

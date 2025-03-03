@@ -6,6 +6,7 @@ import { Input } from "./Input";
 export const Navbar = () => {
   const navigate = useNavigate();
   const redirectToHome = () => {
+    console.log("Redirect to home");
     navigate("/");
   };
   // const [sticky, setSticky] = useState(false);
