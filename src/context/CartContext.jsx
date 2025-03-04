@@ -3,8 +3,6 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-
-
   const [cartItems, setCartItems] = useState(
     localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
@@ -15,9 +13,12 @@ export const CartProvider = ({ children }) => {
     const cartItemExists = cartItems.find((c) => c.id === item.id);
 
     if (cartItemExists) {
+      console.log(cartItems, " cart");
       setCartItems(
         cartItems.map((cart) =>
-          cart.id === item.id ? { ...cart, quantity: item.quantity + 1 } : cart
+          cart.id === item.id
+            ? { ...cart, quantity: Number(cart.quantity) + 1 }
+            : cart
         )
       );
     } else {

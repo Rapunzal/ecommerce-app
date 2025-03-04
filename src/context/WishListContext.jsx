@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const WishListContext = createContext();
 
 export const WishListProvider = ({ children }) => {
+  localStorage.clear();
   const [wishList, setWishList] = useState(
     localStorage.getItem("wishlist")
       ? JSON.parse(localStorage.getItem("wishlist"))
@@ -16,6 +17,7 @@ export const WishListProvider = ({ children }) => {
       setWishList(
         wishList.map((p) => {
           if (p.id === product.id) return { ...p };
+          return p;
         })
       );
     } else {

@@ -14,7 +14,8 @@ export const Product = ({ product }) => {
       className="w-80 h-86  border border-gray-300 rounded-md"
     >
       <div className="flex justify-center">
-        <img src={product.images[0]} className="h-60 w-80 bg-gray-100" />
+        {/* <img src={product.images[0]} className="h-60 w-80 bg-gray-100" /> */}
+        <img src={product.thumbnail} className="h-60 w-80 bg-gray-100" />
       </div>
       <div className="mx-5 relative h-44">
         <p className="text-xl  text-gray-500">{product.title}</p>
