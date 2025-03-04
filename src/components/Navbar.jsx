@@ -36,7 +36,7 @@ export const Navbar = () => {
             Home
           </Link>
           <Link to={"/about"} className="px-6">
-            Orders
+            About
           </Link>
           <Link to={"/wishlist"} className="px-6">
             Wishlist
