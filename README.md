@@ -11,6 +11,7 @@
 ## Approach Taken
 
 - Divide E-commerce site functionality into three parts. First being fetching products data into Home page using fetch and displaying it in home page. Used useState as well useContext to manage state.
+- Used Loacl storage it store and retrieve items in cart and wishlist component.
 - Used react-router-dom to manage routing. Used Tailwind CSS framework for design.
 - Used Pagination on Home page to navigate to different pages as well as implemented Search functionality on Home page.For search functionality used useNavigate hook to navigate to that component.
 - For Products rating used Star component.
