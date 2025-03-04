@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { NavLink, Link, useSubmit, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "./Input";
 
 export const Navbar = () => {
@@ -9,17 +9,7 @@ export const Navbar = () => {
     console.log("Redirect to logo");
     navigate("/logo");
   };
-  // const [sticky, setSticky] = useState(false);
 
-  // function setStick() {
-  //   if (window.scrollY >= 390) {
-  //     setSticky(true);
-  //   } else {
-  //     setSticky(false);
-  //   }
-  // }
-  // window.addEventListener("scroll", setStick);
-  // let x = sticky ? "fixed" : "";
   return (
     <div className=" w-full h-16  bg-black text-white flex justify-between fixed left-0 right-0 z-50 py-1">
       <div>
