@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const WishListContext = createContext();
 
 export const WishListProvider = ({ children }) => {
-  localStorage.clear();
+  //localStorage.clear();
   const [wishList, setWishList] = useState(
     localStorage.getItem("wishlist")
       ? JSON.parse(localStorage.getItem("wishlist"))
