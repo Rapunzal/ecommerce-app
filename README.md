@@ -49,7 +49,11 @@ https://ecom-retail.netlify.app/
 
 ![alt text](image-1.png)
 
+- Wishlist
+
 ![alt text](image.png)
+
+- Cart
 
 ![alt text](image-2.png)
 
