@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProductListPage } from "./ProductListPage.jsx";
 import { ProductContext } from "../context/ProductContext.js";
 import { Pagination } from "./Pagination.jsx";
+import { Input } from "./Input.jsx";
 
 export const Home = () => {
   const [productList, setProductList] = useState([]);
@@ -40,11 +41,16 @@ export const Home = () => {
   };
   return (
     <div className="py-20">
+      <div className="flex justify-center align-middle ml-4 mt-2 mb-6">
+        <Input />
+      </div>
+
       <Pagination
         productPerPage={productPerPage}
         totalProducts={productList.length}
         paginate={paginate}
       />
+
       <ProductContext.Provider value={{ currentProduct, setProductList }}>
         <ProductListPage loading={loading} />
       </ProductContext.Provider>

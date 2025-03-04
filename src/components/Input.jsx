@@ -6,9 +6,9 @@ export const Input = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(input);
+    console.log(input), " in input component";
     if (input != "") {
-      navigate(`/search/${input}`);
+      navigate(`/${input}`);
     }
   };
 
@@ -17,7 +17,7 @@ export const Input = () => {
       <input
         type="text"
         placeholder="Search Products"
-        className="h-8 w-96 mt-2 rounded-full  p-2 text-black"
+        className="h-8 w-96 mt-2 rounded-full  p-4 text-black border text-center"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />

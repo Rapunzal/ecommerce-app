@@ -2,9 +2,12 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import { WishListContext } from "../context/WishListContext";
 
 export const Product = ({ product }) => {
   const { cartItems, addToCart } = useContext(CartContext);
+  const { WishList, setWishList, addToWishList } = useContext(WishListContext);
+
   return (
     <div
       key={product.id}
@@ -34,7 +37,10 @@ export const Product = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-between mt-4 absolute bottom-4 w-full">
-          <button className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 hover:bg-orange-600 hover:text-white">
+          <button
+            onClick={() => addToWishList(product)}
+            className="rounded-full px-4 py-1 bg-orange-400 text-gray-800 hover:bg-orange-600 hover:text-white"
+          >
             Wishlist
           </button>
           <button

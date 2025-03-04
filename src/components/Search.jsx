@@ -19,11 +19,18 @@ export const Search = () => {
     getSearchData();
   }, []);
 
-  return (
-    <div className="flex justify-center flex-wrap gap-12  py-44 ml-32 mr-28">
-      {products.map((product) => (
-        <Product product={product} key={product.id} />
-      ))}
-    </div>
-  );
+  if (products.length === 0) {
+    return (
+      <div className="flex justify-center flex-wrap gap-12  py-44 ml-32 mr-28">
+        <h2>No Matching Results Found</h2>
+      </div>
+    );
+  } else
+    return (
+      <div className="flex justify-center flex-wrap gap-12  py-44 ml-32 mr-28">
+        {products.map((product) => (
+          <Product product={product} key={product.id} />
+        ))}
+      </div>
+    );
 };
